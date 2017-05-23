@@ -113,7 +113,15 @@ def RunDOE2(inpf, wthf, ver, path):
 			print "Weather file ("+wthf+") does not exist."
 	except:
 		print "Input file ("+inpf+") does not exist."
-		
+
+def RunBatchDOE2(batch):
+	runs = open(batch,'r').read().split('\n')
+	for run in runs:
+		print run
+		run = run.split(',')
+		RunDOE2(run[0],run[1],run[2],run[3])
+	print "\n===== Batch Simulation Completed ====="
+
 def ImportLib(ver, lib, path):
 	"""
 	Import a user defined library.
@@ -193,6 +201,8 @@ if __name__ == '__main__':
 	path = os.path.dirname(os.path.realpath(__file__))
 	if sys.argv[1] == "RunDOE2":
 		RunDOE2(sys.argv[2], sys.argv[3], sys.argv[4], path)
+	elif sys.argv[1] == "RunBatchDOE2":
+		RunBatchDOE2(sys.argv[2])
 	elif sys.argv[1] == "Extract":
 		ExtractReports(sys.argv[2],sys.argv[3:])
 	elif sys.argv[1] == "GUI":

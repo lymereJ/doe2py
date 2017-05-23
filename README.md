@@ -16,7 +16,14 @@ Synthax:
 
 Open a small GUI that can be used to select input and weather files as well as copy library files (`Usrlib.dat`, e.g. from eQUEST) to the folder of the version of DOE-2 selected to run the simulation. The copy is done right before the simulation.
 
-### Extract
+### Batch Simulations
+Synthax:
+`DOE2py.py RunBatchDOE2 batch_file_name`
+
+Execute a batch of DOE-2 simulations:
+* `batch_file_name` is the name of a CSV file (include the extension) that contains a series of `RunDOE2` arguments.
+
+### Extract (in progress)
 Synthax: `DOE2py.py Extract report_name1 report_name2 etc ...`
 
 This script extract some user specified DOE-2 report out of a .SIM file. I am using this script to extract the reports requested by GBCI for review of LEED projects. They are written in a SIM file ending in `-ext_rpts.SIM`.
